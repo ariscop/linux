@@ -1,6 +1,7 @@
 /*
  * Driver model for leds and led triggers
  *
+ * Copyright 2013 bodhi
  * Copyright (C) 2005 John Lenz <lenz@cs.wisc.edu>
  * Copyright (C) 2005 Richard Purdie <rpurdie@openedhand.com>
  *
@@ -213,9 +214,9 @@ static inline void led_trigger_event(struct led_trigger *trigger,
 
 /* Trigger specific functions */
 #ifdef CONFIG_LEDS_TRIGGER_IDE_DISK
-extern void ledtrig_ide_activity(void);
+extern void ledtrig_ide_activity(int portno);
 #else
-static inline void ledtrig_ide_activity(void) {}
+static inline void ledtrig_ide_activity(int portno) {}
 #endif
 
 #if defined(CONFIG_LEDS_TRIGGER_CAMERA) || defined(CONFIG_LEDS_TRIGGER_CAMERA_MODULE)

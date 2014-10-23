@@ -206,6 +206,7 @@ static void do_identify(ide_drive_t *drive, u8 cmd, u16 *id)
 	printk(KERN_INFO "%s: dumping identify data\n", drive->name);
 	ide_dump_identify((u8 *)id);
 #endif
+
 	ide_fix_driveid(id);
 
 	/*

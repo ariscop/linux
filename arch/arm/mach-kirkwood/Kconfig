@@ -5,29 +5,55 @@ menu "Marvell Kirkwood Implementations"
 config KIRKWOOD_LEGACY
 	bool
 
-config MACH_D2NET_V2
-	bool "LaCie d2 Network v2 NAS Board"
-	select KIRKWOOD_LEGACY
-	help
-	  Say 'Y' here if you want your kernel to support the
-	  LaCie d2 Network v2 NAS.
-
 config MACH_NET2BIG_V2
 	bool "LaCie 2Big Network v2 NAS Board"
-	select KIRKWOOD_LEGACY
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  LaCie 2Big Network v2 NAS.
 
 config MACH_NET5BIG_V2
 	bool "LaCie 5Big Network v2 NAS Board"
-	select KIRKWOOD_LEGACY
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  LaCie 5Big Network v2 NAS.
 
+config MACH_GOFLEXNET
+        bool "Seagate GoFlex Net"
+        help
+          Say 'Y' here if you want your kernel to support the
+          Seagate GoFlex Net.
+
+config MACH_GOFLEXHOME
+        bool "Seagate GoFlex Home"
+        help
+          Say 'Y' here if you want your kernel to support the
+          Seagate GoFlex Home.
+
+config MACH_ICONNECT
+	bool "Iomega iConnect Wireless"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  Iomega iConnect Wireless.
+
+config MACH_POGOPLUGV4
+	bool "Pogoplug Series 4"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  Pogoplug Series 4.
+
+config MACH_POGO_E02
+	bool "CE Pogoplug E02"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  CloudEngines Pogoplug e02.
+
+config MACH_NAS6210
+	bool "RaidSonic ICY BOX IB-NAS6210"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  RaidSonic ICY BOX IB-NAS6210 device.
+
 config MACH_OPENRD
-	select KIRKWOOD_LEGACY
         bool
 
 config MACH_OPENRD_BASE
@@ -53,28 +79,24 @@ config MACH_OPENRD_ULTIMATE
 
 config MACH_RD88F6192_NAS
 	bool "Marvell RD-88F6192-NAS Reference Board"
-	select KIRKWOOD_LEGACY
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  Marvell RD-88F6192-NAS Reference Board.
 
 config MACH_RD88F6281
 	bool "Marvell RD-88F6281 Reference Board"
-	select KIRKWOOD_LEGACY
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  Marvell RD-88F6281 Reference Board.
 
 config MACH_T5325
 	bool "HP t5325 Thin Client"
-	select KIRKWOOD_LEGACY
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  HP t5325 Thin Client.
 
 config MACH_TS219
 	bool "QNAP TS-110, TS-119, TS-119P+, TS-210, TS-219, TS-219P and TS-219P+ Turbo NAS"
-	select KIRKWOOD_LEGACY
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  QNAP TS-110, TS-119, TS-119P+, TS-210, TS-219, TS-219P and
@@ -82,11 +104,74 @@ config MACH_TS219
 
 config MACH_TS41X
 	bool "QNAP TS-410, TS-410U, TS-419P, TS-419P+ and TS-419U Turbo NAS"
-	select KIRKWOOD_LEGACY
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  QNAP TS-410, TS-410U, TS-419P, TS-419P+ and TS-419U Turbo
 	  NAS devices.
+
+config MACH_D2NET_V2
+	bool "LaCie d2 Network v2 NAS Board"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  LaCie d2 Network v2 NAS.
+
+config MACH_DOCKSTAR
+	bool "Seagate FreeAgent DockStar"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  Seagate FreeAgent DockStar.
+
+config MACH_ESATA_SHEEVAPLUG
+	bool "Marvell eSATA SheevaPlug Reference Board"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  Marvell eSATA SheevaPlug Reference Board.
+
+config MACH_GURUPLUG
+	bool "Marvell GuruPlug Reference Board"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  Marvell GuruPlug Reference Board.
+
+config MACH_SHEEVAPLUG
+	bool "Marvell SheevaPlug Reference Board"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  Marvell SheevaPlug Reference Board.
+
+config MACH_NSA320
+   bool "ZyXEL NSA320 2-Bay Power Media Server"
+   help
+     Say 'Y' here if you want your kernel to support the
+     ZyXel NSA320.
+
+config MACH_TOPKICK
+ 	bool "USI Topkick"
+ 	help
+ 		Say 'Y' here if you want your kernel to support the
+ 		USI Topkick.
+
+config MACH_NSA310
+       bool "ZyXEL NSA310 1-Bay Power Media Server"
+       help
+         Say 'Y' here if you want your kernel to support the
+         ZyXEL NSA310.
+
+       help
+         Say 'Y' here if you want your kernel to support the
+         ZyXEL NSA320.
+
+config MACH_NSA325
+   bool "ZyXEL NSA325 2-Bay Power Media Server"
+   help
+     Say 'Y' here if you want your kernel to support the
+     ZyXel NSA325.
+
+config MACH_NETGEAR_MS2110
+               bool "Netgear MS2110 aka Stora"
+               help
+                 Say 'Y' here if you want your kernel to support the
+                 Netgear Stora
 
 comment "Device tree entries"
 
@@ -105,6 +190,7 @@ config ARCH_KIRKWOOD_DT
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  Marvell Kirkwood using flattened device tree.
+
 
 endmenu
 

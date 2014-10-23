@@ -1,5 +1,6 @@
-obj-$(CONFIG_KIRKWOOD_LEGACY)	+= irq.o mpp.o common.o pcie.o
+obj-y				+= common.o irq.o pcie.o mpp.o
 obj-$(CONFIG_PM)		+= pm.o
+
 
 obj-$(CONFIG_MACH_D2NET_V2)		+= d2net_v2-setup.o lacie_v2-common.o
 obj-$(CONFIG_MACH_NET2BIG_V2)		+= netxbig_v2-setup.o lacie_v2-common.o
@@ -12,3 +13,20 @@ obj-$(CONFIG_MACH_TS219)		+= ts219-setup.o tsx1x-common.o
 obj-$(CONFIG_MACH_TS41X)		+= ts41x-setup.o tsx1x-common.o
 
 obj-$(CONFIG_ARCH_KIRKWOOD_DT)		+= board-dt.o
+
+obj-$(CONFIG_MACH_DOCKSTAR)		+= dockstar-setup.o
+obj-$(CONFIG_MACH_ESATA_SHEEVAPLUG)	+= sheevaplug-setup.o
+obj-$(CONFIG_MACH_GURUPLUG)		+= guruplug-setup.o
+obj-$(CONFIG_MACH_INETSPACE_V2)		+= netspace_v2-setup.o lacie_v2-common.o
+obj-$(CONFIG_MACH_MV88F6281GTW_GE)	+= mv88f6281gtw_ge-setup.o
+obj-$(CONFIG_MACH_SHEEVAPLUG)		+= sheevaplug-setup.o
+obj-$(CONFIG_MACH_GOFLEXNET)		+= goflexnet-setup.o
+obj-$(CONFIG_MACH_GOFLEXHOME)		+= goflexhome-setup.o
+obj-$(CONFIG_MACH_ICONNECT)		+= iconnect-setup.o
+obj-$(CONFIG_MACH_POGOPLUGV4)		+= pogoplugv4-setup.o
+obj-$(CONFIG_MACH_POGO_E02)		+= pogo_e02-setup.o
+obj-$(CONFIG_MACH_NSA320)               += nsa320-setup.o
+obj-$(CONFIG_MACH_TOPKICK)		+= topkick-setup.o
+obj-$(CONFIG_MACH_NSA310)               += nsa310-setup.o
+obj-$(CONFIG_MACH_NSA325)               += nsa325-setup.o
+obj-$(CONFIG_MACH_NETGEAR_MS2110)       += netgear_ms2110-setup.o

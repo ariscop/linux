@@ -1516,7 +1516,10 @@ extern struct class *ide_port_class;
 
 static inline void ide_dump_identify(u8 *id)
 {
-	print_hex_dump(KERN_INFO, "", DUMP_PREFIX_NONE, 16, 2, id, 512, 0);
+
+	print_hex_dump(KERN_DEBUG, "", DUMP_PREFIX_NONE, 16, 2, id, 512, 0);
+
+
 }
 
 static inline int hwif_to_node(ide_hwif_t *hwif)
