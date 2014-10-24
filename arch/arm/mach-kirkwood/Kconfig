@@ -89,6 +89,12 @@ config MACH_RD88F6281
 	  Say 'Y' here if you want your kernel to support the
 	  Marvell RD-88F6281 Reference Board.
 
+config MACH_IX4_88F6281_NAS
+	bool "Iomega ix4-200d NAS"
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  Iomega ix4-200d NAS.
+
 config MACH_T5325
 	bool "HP t5325 Thin Client"
 	help
