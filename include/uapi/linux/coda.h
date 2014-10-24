@@ -108,6 +108,7 @@ typedef unsigned long long u_quad_t;
 #endif /* __KERNEL__ */
 #else
 #define cdev_t dev_t
+typedef unsigned long long u_quad_t;
 #endif
 
 #ifdef __CYGWIN32__
