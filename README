@@ -1,5 +1,75 @@
         Linux kernel release 3.x <http://kernel.org/>
 
+This repository contains patches required to run on an Iomega ix4-200d
+using arcNumber 9999 since no offical number has been allocated
+
+What works
+  - USB
+  - SATA (all 4 ports)
+  - Ethernet (both ports)
+
+What does not
+  - front pannel buttons
+  - front pannel screen
+  - fan control (i think, it may be automatic, store in air conditioned room)
+Those require a driver from the offical sources which were taken down
+when lenovo purchased iomega.
+if anyone has a copy it should be simple enough to intergrate with recent linux
+
+
+Build instructions:
+a config file is included, feel free to customize
+on debian: (optionally add -j<numcpu> to make)
+apt-get install gcc-arm-none-eabi
+make ARCH=arm CROSS_COMPILE=arm-none-eabi- all
+make ARCH=arm CROSS_COMPILE=arm-none-eabi- uImage
+
+Uimage should now be in arch/arm/boot/uImage
+
+You will need to run make-kpkg for debian, this will not be documented here
+but .deb binaries will be published on github
+
+Installation
+WARNING: THIS WILL PREVENT THE ORIGINAL KERNEL FROM BOOTING
+         DO NOT RUN UNTIL HAVE A BOOTABLE ARMEL INSTALLATION
+FATAL:   BACKUP /dev/mtd* BEFORE RUNNING, THIS WILL LIKELY
+         WIPE UBOOT PARAMETERS RENDERING THE SYSTEM UNBOOTABLE
+
+you can use systemd-nspawn --bind-ro /usr/bin/qemu-arm-static
+to pre-pare an arm chroot, assuming you've got the required packages 
+installed (systemd, qemu-user-static)
+
+We'll install to a usb since that's the most reliable and easiest to recover
+method should anything go wrong
+
+This needs to be done from a chroot on the stock firmware, the built in
+fw_printenv/fw_setenv always claims a checksum failure. i used debian
+squeeze though most distros (and newer debian) should work
+
+the following line needs to be in /etc/fw_env.config of your chroot
+/dev/mtd1 0x0 0x4000 0x4000
+
+run the following (Remember to set root= )
+fw_setenv usb_load 'run make_boot_args;setenv bootargs $(bootargs) root={root device};usb start;ext2load usb 0 $(loadaddr) /uImage;ext2load usb 0 0x12000000 /uInitrd;bootm 0x2000000 0x12000000'
+fw_setenv bootcmd 'run usb_load'
+fw_setenv arcNumber 9999
+fw_setenv mainlineLinux yes
+In some cases this will wipe all existing parameters due to a checksum failure
+If this happens, restore your backup and then you'll need to pull the
+parameters out using strings and set them all via few_setenv.
+yes they do need to be set.
+
+To create an initrd image
+mkimage -A arm -O linux -T ramdisk -C gzip -a 0x0 -e 0x0 -n initrd -d {initrd image} uInitrd
+
+place uInitrd and uImage on a usb with the first partition formatted as ext2
+or if replace ext2load above with fatload to use fat instead
+
+If this fails, there is a 3.3v serial port in a header the top right of the
+board near a usb port, best of luck
+
+                               ===============
+
 These are the release notes for Linux version 3.  Read them carefully,
 as they tell you what this is all about, explain how to install the
 kernel, and what to do if something goes wrong. 
