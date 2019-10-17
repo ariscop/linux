@@ -519,8 +519,10 @@ static bool amdgpu_atpx_pci_probe_handle(struct pci_dev *pdev)
 		amdgpu_atpx_priv.other_handle = dhandle;
 		return false;
 	}
-	amdgpu_atpx_priv.dhandle = dhandle;
-	amdgpu_atpx_priv.atpx.handle = atpx_handle;
+	if(!amdgpu_atpx_priv.dhandle)
+		amdgpu_atpx_priv.dhandle = dhandle;
+	if(!amdgpu_atpx_priv.atpx.handle)
+		amdgpu_atpx_priv.atpx.handle = atpx_handle;
 	return true;
 }
 
